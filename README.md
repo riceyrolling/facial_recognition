@@ -3,15 +3,15 @@ Full Tutorial posted - https://www.tomshardware.com/how-to/raspberry-pi-facial-r
 
 # Stats
 ## Landmarks ##
-*Chin: 17 points
-*Left eyebrow: 5 points
-*Right eyebrow: 5 points
-*Nose bridge: 4 points
-*Nose tip: 5 points
-*Left eye: 6 points
-*Right eye: 6 points
-*Top lip: 12  points
-*Bottom lip: 12 points
-*Left eye: 6 points
+* Chin: 17 points
+* Left eyebrow: 5 points
+* Right eyebrow: 5 points
+* Nose bridge: 4 points
+* Nose tip: 5 points
+* Left eye: 6 points
+* Right eye: 6 points
+* Top lip: 12  points
+* Bottom lip: 12 points
+* Left eye: 6 points
 
 More info on detection in [/docs/Detection.pdf](https://github.com/riceyrolling/facial_recognition/blob/main/docs/Detection.pdf)
