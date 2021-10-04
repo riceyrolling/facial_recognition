@@ -56,13 +56,26 @@ while True:
 
 		# loop over the facial embeddings
 		start = time.time()
-		for encoding in encodings:
-			# attempt to match each face in the input image to our known
-			# encodings
-			matches = face_recognition.compare_faces(data["encodings"],
-				encoding)
-			name = "Unknown" #if face is not recognized, then print Unknown
+    
+    truecounter = 0
+    Falsecounter = 0
+    SimilarityScore = 1
+    for encoding in encodings:
+      # attempt to match each face in the input image to our known
+      # encodings
+      matches = face_recognition.compare_faces(data["encodings"],
+        encoding)
+      name = "Unknown" #if face is not recognized, then print Unknown
+      for j in matches:
+        if j == True:
+          truecounter = truecounter + 1
 
+        elif j == False:
+          Falsecounter = Falsecounter + 1
+
+      mat = len(matches)		
+      SimilarityScore = int(float(truecounter) / mat * 100)
+      SS = str(SimilarityScore) + "%"
 			# check to see if we have found a match
 			if True in matches:
 				# find the indexes of all matched faces then initialize a
@@ -118,6 +131,7 @@ while True:
 		# display the image to our screen
 		cv2.imshow("Facial Recognition is Running", frame)
 		key = cv2.waitKey(1) & 0xFF
+>>>>>>> main
 
 	# quit when 'q' key is pressed
 	if key == ord("q"):
