@@ -7,6 +7,7 @@ import face_recognition
 import pickle
 import cv2
 import os
+import time
 
 # our images are located in the dataset folder
 print("[INFO] start processing faces...")
@@ -15,9 +16,10 @@ imagePaths = list(paths.list_images("dataset"))
 # initialize the list of known encodings and known names
 knownEncodings = []
 knownNames = []
-
+start = time.time()
 # loop over the image paths
 for (i, imagePath) in enumerate(imagePaths):
+	startImg = time.time()
 	# extract the person name from the image path
 	print("[INFO] processing image {}/{}".format(i + 1,
 		len(imagePaths)))
@@ -43,9 +45,17 @@ for (i, imagePath) in enumerate(imagePaths):
 		knownEncodings.append(encoding)
 		knownNames.append(name)
 
+	endImg = time.time()
+	print("------   Time taken for image  ------")
+	print(endImg - startImg)
+
 # dump the facial encodings + names to disk
 print("[INFO] serializing encodings...")
 data = {"encodings": knownEncodings, "names": knownNames}
 f = open("encodings.pickle", "wb")
 f.write(pickle.dumps(data))
 f.close()
+
+end = time.time()
+print("------   Total time taken  ------")
+print(end - start)
