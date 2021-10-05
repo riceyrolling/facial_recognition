@@ -58,19 +58,16 @@ while True:
 		start = time.time()
     
 		truecounter = 0
-		Falsecounter = 0
 		SimilarityScore = 1
 		for encoding in encodings:
 			# attempt to match each face in the input image to our known
 		 	# encodings
-		 	matches = face_recognition.compare_faces(data["encodings"],
-								 encoding)
-		        name = "Unknown" #if face is not recognized, then print Unknown
+		 	matches = face_recognition.compare_faces(data["encodings"],encoding)
+		        name = "Unknown"
+			#if face is not recognized, then print Unknown
 		        for j in matches:
 				if j == True:
 					truecounter = truecounter + 1
-				elif j == False:
-					Falsecounter = Falsecounter + 1
 		        mat = len(matches)		
 		        SimilarityScore = int(float(truecounter) / mat * 100)
 		        SS = str(SimilarityScore) + "%"
