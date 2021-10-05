@@ -9,14 +9,9 @@ import pickle
 import time
 import cv2
 import time
-import RPi.GPIO as GPIO
 
 # setup raspberry pi GPIO input for PIR motion
 # detector on GPIO 7 (pin 26)
-GPIO.setmode(GPIO.BCM)
-PIR_PIN = 23
-GPIO.setup(PIR_PIN, GPIO.IN)
-lastMotion = time.time()
 
 #Initialize 'currentname' to trigger only when a new person is identified.
 currentname = "unknown"
@@ -41,10 +36,7 @@ fps = FPS().start()
 
 # loop over frames from the video file stream
 while True:
-	if GPIO.input(PIR_PIN) or time.time() < lastMotion + 15:
-		# if motion input, start timer again.
-		if GPIO.input(PIR_PIN):
-			lastMotion = time.time()
+	if True:
 		# grab the frame from the threaded video stream and resize it
 		# to 500px (to speedup processing)
 		frame = vs.read()
