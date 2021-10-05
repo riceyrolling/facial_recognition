@@ -57,25 +57,23 @@ while True:
 		# loop over the facial embeddings
 		start = time.time()
     
-    truecounter = 0
-    Falsecounter = 0
-    SimilarityScore = 1
-    for encoding in encodings:
-      # attempt to match each face in the input image to our known
-      # encodings
-      matches = face_recognition.compare_faces(data["encodings"],
-        encoding)
-      name = "Unknown" #if face is not recognized, then print Unknown
-      for j in matches:
-        if j == True:
-          truecounter = truecounter + 1
-
-        elif j == False:
-          Falsecounter = Falsecounter + 1
-
-      mat = len(matches)		
-      SimilarityScore = int(float(truecounter) / mat * 100)
-      SS = str(SimilarityScore) + "%"
+		truecounter = 0
+		Falsecounter = 0
+		SimilarityScore = 1
+		for encoding in encodings:
+			# attempt to match each face in the input image to our known
+		 	# encodings
+		 	matches = face_recognition.compare_faces(data["encodings"],encoding)
+		        name = "Unknown" #if face is not recognized, then print Unknown
+		        for j in matches:
+				if j == True:
+					truecounter = truecounter + 1
+				elif j == False:
+					Falsecounter = Falsecounter + 1
+		        mat = len(matches)		
+		        SimilarityScore = int(float(truecounter) / mat * 100)
+		        SS = str(SimilarityScore) + "%"
+		        
 			# check to see if we have found a match
 			if True in matches:
 				# find the indexes of all matched faces then initialize a
@@ -101,6 +99,8 @@ while True:
 					print("------   Name   ------")
 					print(currentname)
 					end = time.time()
+					print("------   Similarity Score   ------")
+					print(SS)
 					print("------   Time taken   ------")
 					print(end - start)
 
