@@ -68,9 +68,9 @@ while True:
 			for j in matches:
 				if j == True:
 					truecounter = truecounter + 1
-			mat = len(matches)		
-		        SimilarityScore = int(float(truecounter) / mat * 100)
-		        SS = str(SimilarityScore) + "%"
+			mat = len(matches)
+			SimilarityScore = int(float(truecounter) / mat * 100)
+			SS = str(SimilarityScore) + "%"
 		        
 			# check to see if we have found a match
 			if True in matches:
